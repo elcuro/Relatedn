@@ -1,0 +1,13 @@
+{
+	"name": "Relatedn",
+	"description": "Get related nodes of various types for node",
+
+	"author": "Juraj Jancuska <jjancuska at gmail.org>",
+	"authorEmail": "jjancuska@gmail.org",
+	"authorUrl": "",
+
+	"dependencies": {
+		"plugins": [
+		]
+	}
+}
