@@ -57,7 +57,7 @@ class RelatednComponent extends Component {
                      if (count($term_slugs > 0)) {
 
                             $params['cache'] = array(
-                                   'prefix' => 'term_related_nodes_' . $slug,
+                                   'prefix' => 'term_related_nodes_' . $controller->viewVars['node']['Node']['slug'],
                                    'config' => 'croogo_nodes',
                             );                               
                             foreach ($term_slugs as $slug) {
