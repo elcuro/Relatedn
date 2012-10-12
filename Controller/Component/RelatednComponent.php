@@ -56,21 +56,23 @@ class RelatednComponent extends Component {
 
                      if (count($term_slugs > 0)) {
 
-                            $params['cache'] = array(
+                            /*$params['cache'] = array(
                                    'prefix' => 'term_related_nodes_' . $controller->viewVars['node']['Node']['slug'],
                                    'config' => 'croogo_nodes',
-                            );                               
+                            );*/                               
                             foreach ($term_slugs as $slug) {
                                    $term_conditions['OR'][] = array('Node.terms LIKE' => '%"' . $slug . '"%');
                             }                                                                                                            
                             $params['conditions'] = array(
                                    'Node.status' => 1,
+                                   'Node.type LIKE' => '%',
                                    $term_conditions,
                                    array('OR' => array(
                                           'Node.visibility_roles' => '',
                                           'Node.visibility_roles LIKE' => '%"' . $controller->Croogo->roleId . '"%'
                                    ))
                             );
+                            $controller->Node->type = false; // bypas beforeFind in Node model
                             $term_nodes = $controller->Node->find('all', $params);                            
                      }                            
               }       
